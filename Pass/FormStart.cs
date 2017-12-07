@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
-using System.IO;
 
 namespace Pass
 {
@@ -17,6 +10,8 @@ namespace Pass
         {
             get { return textBox1.Text; }
         }
+
+        private bool readyForEnter = false;
 
         public FormStart()
         {
@@ -46,21 +41,28 @@ namespace Pass
         private void FormStart_Shown(object sender, EventArgs e)
         {
             textBox1.Focus();
+            timer1.Start();
         }
 
         private void textBox1_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                this.Close();
+                if (readyForEnter) this.Close();
             }
 
             else if (e.KeyCode == Keys.Escape)
             {
+                textBox1.Clear();
                 this.Close();
             }
 
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            readyForEnter = true;
+            timer1.Stop();
+        }
     }
 }

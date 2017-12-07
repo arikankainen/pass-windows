@@ -16,7 +16,8 @@ namespace Pass
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormHidden());
+            //Application.Run(new FormHidden());
+            Application.Run(new FormMain());
         }
     }
 }

@@ -14,12 +14,12 @@ namespace Pass
     {
         private string modifyItem = "Modify item";
 
-        public string Site
+        public string SiteName
         {
-            get { return txtSite.Text; }
+            get { return txtSiteName.Text; }
             set 
             { 
-                txtSite.Text = value;
+                txtSiteName.Text = value;
                 labelName.Text = modifyItem;
             }
         }
@@ -52,11 +52,17 @@ namespace Pass
             set { txtComments.Text = value; }
         }
 
+        public bool ShowPassword
+        {
+            set { checkShowPassword.Checked = value; }
+        }
+
         public FormAdd()
         {
             InitializeComponent();
             Application.AddMessageFilter(this);
             addLines();
+            checkPassword();
         }
 
         private void addLines()
@@ -87,7 +93,7 @@ namespace Pass
 
         private void FormAdd_Shown(object sender, EventArgs e)
         {
-            txtSite.Focus();
+            txtSiteName.Focus();
         }
 
         private void txt_KeyUp(object sender, KeyEventArgs e)
@@ -100,5 +106,15 @@ namespace Pass
 
         }
 
+        private void checkShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            checkPassword();
+        }
+
+        private void checkPassword()
+        {
+            if (!checkShowPassword.Checked) txtPassword.PasswordChar = '●';
+            else txtPassword.PasswordChar = '\0';
+        }
     }
 }

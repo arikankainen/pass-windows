@@ -35,8 +35,8 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.labelName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnOpenInBrowser = new System.Windows.Forms.Button();
             this.labelSite = new System.Windows.Forms.Label();
+            this.btnOpenInBrowser = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,18 +93,6 @@
             this.panel1.Size = new System.Drawing.Size(351, 70);
             this.panel1.TabIndex = 40;
             // 
-            // btnOpenInBrowser
-            // 
-            this.btnOpenInBrowser.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnOpenInBrowser.Enabled = false;
-            this.btnOpenInBrowser.Location = new System.Drawing.Point(24, 84);
-            this.btnOpenInBrowser.Name = "btnOpenInBrowser";
-            this.btnOpenInBrowser.Size = new System.Drawing.Size(100, 23);
-            this.btnOpenInBrowser.TabIndex = 41;
-            this.btnOpenInBrowser.Text = "Open in browser";
-            this.btnOpenInBrowser.UseVisualStyleBackColor = true;
-            this.btnOpenInBrowser.Click += new System.EventHandler(this.btnOpenInBrowser_Click);
-            // 
             // labelSite
             // 
             this.labelSite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -117,6 +105,18 @@
             this.labelSite.Text = "Site";
             this.labelSite.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.labelSite.UseMnemonic = false;
+            // 
+            // btnOpenInBrowser
+            // 
+            this.btnOpenInBrowser.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnOpenInBrowser.Enabled = false;
+            this.btnOpenInBrowser.Location = new System.Drawing.Point(24, 84);
+            this.btnOpenInBrowser.Name = "btnOpenInBrowser";
+            this.btnOpenInBrowser.Size = new System.Drawing.Size(100, 23);
+            this.btnOpenInBrowser.TabIndex = 41;
+            this.btnOpenInBrowser.Text = "Open in browser";
+            this.btnOpenInBrowser.UseVisualStyleBackColor = true;
+            this.btnOpenInBrowser.Click += new System.EventHandler(this.btnOpenInBrowser_Click);
             // 
             // FormLogin
             // 

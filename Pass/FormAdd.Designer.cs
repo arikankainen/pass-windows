@@ -36,7 +36,7 @@
             this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnNew = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.txtSite = new System.Windows.Forms.TextBox();
+            this.txtSiteName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -46,6 +46,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtComments = new System.Windows.Forms.TextBox();
+            this.checkShowPassword = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,24 +109,24 @@
             this.columnNew.Text = "New episodes";
             this.columnNew.Width = 100;
             // 
-            // txtSite
+            // txtSiteName
             // 
-            this.txtSite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtSiteName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSite.Location = new System.Drawing.Point(24, 89);
-            this.txtSite.Name = "txtSite";
-            this.txtSite.Size = new System.Drawing.Size(420, 20);
-            this.txtSite.TabIndex = 21;
-            this.txtSite.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_KeyUp);
+            this.txtSiteName.Location = new System.Drawing.Point(24, 89);
+            this.txtSiteName.Name = "txtSiteName";
+            this.txtSiteName.Size = new System.Drawing.Size(420, 20);
+            this.txtSiteName.TabIndex = 21;
+            this.txtSiteName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_KeyUp);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(21, 73);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 13);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 22;
-            this.label1.Text = "Site:";
+            this.label1.Text = "Name:";
             // 
             // label2
             // 
@@ -205,12 +206,24 @@
             this.txtComments.TabIndex = 29;
             this.txtComments.TextChanged += new System.EventHandler(this.txtComments_TextChanged);
             // 
+            // checkShowPassword
+            // 
+            this.checkShowPassword.AutoSize = true;
+            this.checkShowPassword.Location = new System.Drawing.Point(26, 427);
+            this.checkShowPassword.Name = "checkShowPassword";
+            this.checkShowPassword.Size = new System.Drawing.Size(101, 17);
+            this.checkShowPassword.TabIndex = 31;
+            this.checkShowPassword.Text = "Show password";
+            this.checkShowPassword.UseVisualStyleBackColor = true;
+            this.checkShowPassword.CheckedChanged += new System.EventHandler(this.checkShowPassword_CheckedChanged);
+            // 
             // FormAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(470, 459);
+            this.Controls.Add(this.checkShowPassword);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtComments);
             this.Controls.Add(this.label4);
@@ -220,7 +233,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtSite);
+            this.Controls.Add(this.txtSiteName);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancel);
@@ -249,7 +262,7 @@
         private System.Windows.Forms.ColumnHeader columnName;
         private System.Windows.Forms.ColumnHeader columnAddress;
         private System.Windows.Forms.ColumnHeader columnNew;
-        private System.Windows.Forms.TextBox txtSite;
+        private System.Windows.Forms.TextBox txtSiteName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtAddress;
@@ -259,5 +272,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtComments;
+        private System.Windows.Forms.CheckBox checkShowPassword;
     }
 }

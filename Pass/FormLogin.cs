@@ -1,22 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace Pass
 {
     public partial class FormLogin : Form
     {
-        private string site = null;
-        public string Site
+        private string siteName = null;
+        public string SiteName
         {
-            set { if (value.Length > 0) site = value; }
+            set { if (value.Length > 0) siteName = value; }
         }
 
         private string address = null;
@@ -75,7 +68,7 @@ namespace Pass
 
         private void FormLogin_Shown(object sender, EventArgs e)
         {
-            labelSite.Text = site;
+            labelSite.Text = siteName;
 
             if (address != null) btnOpenInBrowser.Enabled = true;
 
@@ -109,10 +102,8 @@ namespace Pass
         private void FormLogin_Load(object sender, EventArgs e)
         {
             Screen screen = Screen.FromPoint(Cursor.Position);
-            //this.Left = screen.WorkingArea.Left + (screen.WorkingArea.Size.Width / 2) - (this.Width / 2);
-            //this.Top = screen.WorkingArea.Top + (screen.WorkingArea.Size.Height / 2) - (this.Height / 2) - 1;
-            this.Left = screen.WorkingArea.Left + screen.WorkingArea.Size.Width - this.Width - 50;
-            this.Top = screen.WorkingArea.Top + screen.WorkingArea.Size.Height - this.Height - 50;
+            this.Left = screen.WorkingArea.Left + screen.WorkingArea.Size.Width - this.Width - 10;
+            this.Top = screen.WorkingArea.Top + screen.WorkingArea.Size.Height - this.Height - 10;
         }
 
     }
