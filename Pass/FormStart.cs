@@ -16,15 +16,15 @@ namespace Pass
         public FormStart()
         {
             InitializeComponent();
-            addLines();
+            AddLines();
         }
 
-        private void addLines()
+        private void AddLines()
         {
-            line(panel1.Height, (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left));
+            Line(panel1.Height, (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left));
         }
 
-        private void line(int top, AnchorStyles a)
+        private void Line(int top, AnchorStyles a)
         {
             Label labelLine = new Label();
             labelLine.Top = top;
@@ -44,7 +44,7 @@ namespace Pass
             timer1.Start();
         }
 
-        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        private void TextBox1_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -59,7 +59,7 @@ namespace Pass
 
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             readyForEnter = true;
             timer1.Stop();

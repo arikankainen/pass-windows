@@ -25,16 +25,16 @@ namespace Pass
         public FormChangePassword()
         {
             InitializeComponent();
-            addLines();
+            AddLines();
         }
 
-        private void addLines()
+        private void AddLines()
         {
-            line(panel1.Height, (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left));
-            line(this.ClientRectangle.Height - 51, (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left));
+            Line(panel1.Height, (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left));
+            Line(this.ClientRectangle.Height - 51, (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left));
         }
 
-        private void line(int top, AnchorStyles a)
+        private void Line(int top, AnchorStyles a)
         {
             Label labelLine = new Label();
             labelLine.Top = top;
@@ -52,7 +52,7 @@ namespace Pass
             txtPass1.Focus();
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
+        private void BtnOk_Click(object sender, EventArgs e)
         {
             if (txtPass1.Text.Length > 0 && txtPass1.Text == txtPass2.Text)
             {

@@ -33,15 +33,15 @@ namespace Pass
         public FormLogin()
         {
             InitializeComponent();
-            addLines();
+            AddLines();
         }
 
-        private void addLines()
+        private void AddLines()
         {
-            line(panel1.Height, (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left));
+            Line(panel1.Height, (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left));
         }
 
-        private void line(int top, AnchorStyles a)
+        private void Line(int top, AnchorStyles a)
         {
             Label labelLine = new Label();
             labelLine.Top = top;
@@ -54,7 +54,7 @@ namespace Pass
             labelLine.BringToFront();
         }
 
-        private void btnNext_Click(object sender, EventArgs e)
+        private void BtnNext_Click(object sender, EventArgs e)
         {
             if (btnNext.Text == "Next >")
             {
@@ -89,7 +89,7 @@ namespace Pass
 
         }
 
-        private void btnOpenInBrowser_Click(object sender, EventArgs e)
+        private void BtnOpenInBrowser_Click(object sender, EventArgs e)
         {
             Process.Start(address);
         }

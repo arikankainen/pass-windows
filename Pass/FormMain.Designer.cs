@@ -31,13 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolSave = new System.Windows.Forms.ToolStripButton();
             this.toolAdd = new System.Windows.Forms.ToolStripButton();
             this.toolModify = new System.Windows.Forms.ToolStripButton();
             this.toolDelete = new System.Windows.Forms.ToolStripButton();
             this.toolCopyClipboard = new System.Windows.Forms.ToolStripButton();
+            this.toolSave = new System.Windows.Forms.ToolStripButton();
             this.toolLock = new System.Windows.Forms.ToolStripButton();
             this.toolLabelLock = new System.Windows.Forms.ToolStripLabel();
+            this.toolLabelSaved = new System.Windows.Forms.ToolStripLabel();
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuSaveList = new System.Windows.Forms.MenuItem();
@@ -71,7 +72,7 @@
             this.clmPassword = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmComments = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.timerFormShown = new System.Windows.Forms.Timer(this.components);
-            this.toolLabelSaved = new System.Windows.Forms.ToolStripLabel();
+            this.menuMinimizeOnCopy = new System.Windows.Forms.MenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusDummy)).BeginInit();
@@ -103,18 +104,6 @@
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolSave
-            // 
-            this.toolSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolSave.Enabled = false;
-            this.toolSave.Image = ((System.Drawing.Image)(resources.GetObject("toolSave.Image")));
-            this.toolSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolSave.Margin = new System.Windows.Forms.Padding(20, 1, 5, 2);
-            this.toolSave.Name = "toolSave";
-            this.toolSave.Size = new System.Drawing.Size(23, 22);
-            this.toolSave.Text = "Save list";
-            this.toolSave.Click += new System.EventHandler(this.toolSave_Click);
-            // 
             // toolAdd
             // 
             this.toolAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -124,7 +113,7 @@
             this.toolAdd.Name = "toolAdd";
             this.toolAdd.Size = new System.Drawing.Size(23, 22);
             this.toolAdd.Text = "Add...";
-            this.toolAdd.Click += new System.EventHandler(this.toolAdd_Click);
+            this.toolAdd.Click += new System.EventHandler(this.ToolAdd_Click);
             // 
             // toolModify
             // 
@@ -135,7 +124,7 @@
             this.toolModify.Name = "toolModify";
             this.toolModify.Size = new System.Drawing.Size(23, 22);
             this.toolModify.Text = "Modify...";
-            this.toolModify.Click += new System.EventHandler(this.toolModify_Click);
+            this.toolModify.Click += new System.EventHandler(this.ToolModify_Click);
             // 
             // toolDelete
             // 
@@ -146,7 +135,7 @@
             this.toolDelete.Name = "toolDelete";
             this.toolDelete.Size = new System.Drawing.Size(23, 22);
             this.toolDelete.Text = "Delete...";
-            this.toolDelete.Click += new System.EventHandler(this.toolDelete_Click);
+            this.toolDelete.Click += new System.EventHandler(this.ToolDelete_Click);
             // 
             // toolCopyClipboard
             // 
@@ -159,7 +148,19 @@
             this.toolCopyClipboard.Size = new System.Drawing.Size(23, 22);
             this.toolCopyClipboard.Text = "Copy to clipboard";
             this.toolCopyClipboard.ToolTipText = "Copy to clipboard";
-            this.toolCopyClipboard.Click += new System.EventHandler(this.toolCopyClipboard_Click);
+            this.toolCopyClipboard.Click += new System.EventHandler(this.ToolCopyClipboard_Click);
+            // 
+            // toolSave
+            // 
+            this.toolSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolSave.Enabled = false;
+            this.toolSave.Image = ((System.Drawing.Image)(resources.GetObject("toolSave.Image")));
+            this.toolSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolSave.Margin = new System.Windows.Forms.Padding(20, 1, 5, 2);
+            this.toolSave.Name = "toolSave";
+            this.toolSave.Size = new System.Drawing.Size(23, 22);
+            this.toolSave.Text = "Save list";
+            this.toolSave.Click += new System.EventHandler(this.ToolSave_Click);
             // 
             // toolLock
             // 
@@ -174,7 +175,7 @@
             this.toolLock.Size = new System.Drawing.Size(23, 22);
             this.toolLock.Text = "toolStripButton1";
             this.toolLock.ToolTipText = "Unlock";
-            this.toolLock.Click += new System.EventHandler(this.toolLock_Click);
+            this.toolLock.Click += new System.EventHandler(this.ToolLock_Click);
             // 
             // toolLabelLock
             // 
@@ -182,6 +183,12 @@
             this.toolLabelLock.Name = "toolLabelLock";
             this.toolLabelLock.Size = new System.Drawing.Size(63, 22);
             this.toolLabelLock.Text = "List locked";
+            // 
+            // toolLabelSaved
+            // 
+            this.toolLabelSaved.Name = "toolLabelSaved";
+            this.toolLabelSaved.Size = new System.Drawing.Size(79, 22);
+            this.toolLabelSaved.Text = "List not saved";
             // 
             // mainMenu1
             // 
@@ -205,14 +212,14 @@
             this.menuSaveList.Enabled = false;
             this.menuSaveList.Index = 0;
             this.menuSaveList.Text = "Save list";
-            this.menuSaveList.Click += new System.EventHandler(this.menuSaveList_Click);
+            this.menuSaveList.Click += new System.EventHandler(this.MenuSaveList_Click);
             // 
             // menuBackupList
             // 
             this.menuBackupList.Enabled = false;
             this.menuBackupList.Index = 1;
             this.menuBackupList.Text = "Backup list";
-            this.menuBackupList.Click += new System.EventHandler(this.menuBackupList_Click);
+            this.menuBackupList.Click += new System.EventHandler(this.MenuBackupList_Click);
             // 
             // menuItem8
             // 
@@ -223,7 +230,7 @@
             // 
             this.menuExit.Index = 3;
             this.menuExit.Text = "Exit";
-            this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
+            this.menuExit.Click += new System.EventHandler(this.MenuExit_Click);
             // 
             // menuItem2
             // 
@@ -243,14 +250,14 @@
             // 
             this.menuChangePassword.Index = 0;
             this.menuChangePassword.Text = "Create master password...";
-            this.menuChangePassword.Click += new System.EventHandler(this.menuChangePassword_Click);
+            this.menuChangePassword.Click += new System.EventHandler(this.MenuChangePassword_Click);
             // 
             // menuLock
             // 
             this.menuLock.Checked = true;
             this.menuLock.Index = 1;
             this.menuLock.Text = "Lock";
-            this.menuLock.Click += new System.EventHandler(this.menuLock_Click);
+            this.menuLock.Click += new System.EventHandler(this.MenuLock_Click);
             // 
             // menuItem4
             // 
@@ -262,21 +269,21 @@
             this.menuAdd.Enabled = false;
             this.menuAdd.Index = 3;
             this.menuAdd.Text = "Add...";
-            this.menuAdd.Click += new System.EventHandler(this.menuAdd_Click);
+            this.menuAdd.Click += new System.EventHandler(this.MenuAdd_Click);
             // 
             // menuModify
             // 
             this.menuModify.Enabled = false;
             this.menuModify.Index = 4;
             this.menuModify.Text = "Modify...";
-            this.menuModify.Click += new System.EventHandler(this.menuModify_Click);
+            this.menuModify.Click += new System.EventHandler(this.MenuModify_Click);
             // 
             // menuDelete
             // 
             this.menuDelete.Enabled = false;
             this.menuDelete.Index = 5;
             this.menuDelete.Text = "Delete...";
-            this.menuDelete.Click += new System.EventHandler(this.menuDelete_Click);
+            this.menuDelete.Click += new System.EventHandler(this.MenuDelete_Click);
             // 
             // menuItem15
             // 
@@ -288,7 +295,7 @@
             this.menuCopyClipboard.Enabled = false;
             this.menuCopyClipboard.Index = 7;
             this.menuCopyClipboard.Text = "Copy to clipboard";
-            this.menuCopyClipboard.Click += new System.EventHandler(this.menuCopyClipboard_Click);
+            this.menuCopyClipboard.Click += new System.EventHandler(this.MenuCopyClipboard_Click);
             // 
             // menuItem3
             // 
@@ -297,14 +304,15 @@
             this.menuShowPasswords,
             this.menuItem5,
             this.menuUnlockStart,
-            this.menuMinimizeOnLock});
+            this.menuMinimizeOnLock,
+            this.menuMinimizeOnCopy});
             this.menuItem3.Text = "Settings";
             // 
             // menuShowPasswords
             // 
             this.menuShowPasswords.Index = 0;
             this.menuShowPasswords.Text = "Show passwords";
-            this.menuShowPasswords.Click += new System.EventHandler(this.menuShowPasswords_Click);
+            this.menuShowPasswords.Click += new System.EventHandler(this.MenuShowPasswords_Click);
             // 
             // menuItem5
             // 
@@ -315,13 +323,13 @@
             // 
             this.menuUnlockStart.Index = 2;
             this.menuUnlockStart.Text = "Prompt to unlock list on start";
-            this.menuUnlockStart.Click += new System.EventHandler(this.menuUnlockStart_Click);
+            this.menuUnlockStart.Click += new System.EventHandler(this.MenuUnlockStart_Click);
             // 
             // menuMinimizeOnLock
             // 
             this.menuMinimizeOnLock.Index = 3;
             this.menuMinimizeOnLock.Text = "Minimize on lock";
-            this.menuMinimizeOnLock.Click += new System.EventHandler(this.menuMinimizeOnLock_Click);
+            this.menuMinimizeOnLock.Click += new System.EventHandler(this.MenuMinimizeOnLock_Click);
             // 
             // statusBar1
             // 
@@ -397,9 +405,9 @@
             this.lstPass.TabIndex = 0;
             this.lstPass.UseCompatibleStateImageBehavior = false;
             this.lstPass.View = System.Windows.Forms.View.Details;
-            this.lstPass.SelectedIndexChanged += new System.EventHandler(this.lstPass_SelectedIndexChanged);
-            this.lstPass.DoubleClick += new System.EventHandler(this.lstPass_DoubleClick);
-            this.lstPass.KeyUp += new System.Windows.Forms.KeyEventHandler(this.lstPass_KeyUp);
+            this.lstPass.SelectedIndexChanged += new System.EventHandler(this.LstPass_SelectedIndexChanged);
+            this.lstPass.DoubleClick += new System.EventHandler(this.LstPass_DoubleClick);
+            this.lstPass.KeyUp += new System.Windows.Forms.KeyEventHandler(this.LstPass_KeyUp);
             // 
             // clmName
             // 
@@ -429,13 +437,13 @@
             // timerFormShown
             // 
             this.timerFormShown.Interval = 200;
-            this.timerFormShown.Tick += new System.EventHandler(this.timerFormShown_Tick);
+            this.timerFormShown.Tick += new System.EventHandler(this.TimerFormShown_Tick);
             // 
-            // toolLabelSaved
+            // menuMinimizeOnCopy
             // 
-            this.toolLabelSaved.Name = "toolLabelSaved";
-            this.toolLabelSaved.Size = new System.Drawing.Size(79, 22);
-            this.toolLabelSaved.Text = "List not saved";
+            this.menuMinimizeOnCopy.Index = 4;
+            this.menuMinimizeOnCopy.Text = "Minimize on copy";
+            this.menuMinimizeOnCopy.Click += new System.EventHandler(this.MenuMinimizeOnCopy_Click);
             // 
             // FormMain
             // 
@@ -509,6 +517,7 @@
         private System.Windows.Forms.MenuItem menuMinimizeOnLock;
         private System.Windows.Forms.MenuItem menuItem5;
         private System.Windows.Forms.ToolStripLabel toolLabelSaved;
+        private System.Windows.Forms.MenuItem menuMinimizeOnCopy;
     }
 }
 

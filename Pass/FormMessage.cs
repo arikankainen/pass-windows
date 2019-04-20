@@ -80,22 +80,22 @@ namespace Pass
 
         public bool AddLines
         {
-            set { if (value) addLines(); }
+            set { if (value) AddLines2(); }
         }
 
         public FormMessage()
         {
             InitializeComponent();
-            line(panel1.Height, (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left));
+            Line(panel1.Height, (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left));
             //addLines();
         }
 
-        private void addLines()
+        private void AddLines2()
         {
-            line(this.ClientRectangle.Height - 51, (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left));
+            Line(this.ClientRectangle.Height - 51, (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left));
         }
 
-        private void line(int top, AnchorStyles a)
+        private void Line(int top, AnchorStyles a)
         {
             Label labelLine = new Label();
             labelLine.Top = top;
@@ -113,19 +113,19 @@ namespace Pass
 
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
+        private void BtnOk_Click(object sender, EventArgs e)
         {
             okClicked = true;
             this.Close();
         }
 
-        private void btnNo_Click(object sender, EventArgs e)
+        private void BtnNo_Click(object sender, EventArgs e)
         {
             noClicked = true;
             this.Close();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
             cancelClicked = true;
             this.Close();

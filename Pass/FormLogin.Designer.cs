@@ -65,7 +65,7 @@
             this.btnNext.TabIndex = 38;
             this.btnNext.Text = "Next >";
             this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            this.btnNext.Click += new System.EventHandler(this.BtnNext_Click);
             // 
             // labelName
             // 
@@ -116,7 +116,7 @@
             this.btnOpenInBrowser.TabIndex = 41;
             this.btnOpenInBrowser.Text = "Open in browser";
             this.btnOpenInBrowser.UseVisualStyleBackColor = true;
-            this.btnOpenInBrowser.Click += new System.EventHandler(this.btnOpenInBrowser_Click);
+            this.btnOpenInBrowser.Click += new System.EventHandler(this.BtnOpenInBrowser_Click);
             // 
             // FormLogin
             // 

@@ -8,14 +8,14 @@ using System.Windows.Forms;
 
 namespace Pass
 {
-    public partial class FormMain : Form, IMessageFilter
+    public partial class FormMain : Form
     {
         private Settings settings = new Settings();
         private string appDir = Path.GetDirectoryName(Application.ExecutablePath);
         private string passFile;
-        private string firstline = "73hfa8ka-4jw3-5jsc-jldf-lfgjsadgmdlk3hlgfjsf-3562-sdg5-423d-3468jkjsäsköldsakölf";
-        private string separator = "c3b19327-3a2e-4bac-b8a9-2b20b167c1e94083d8ce-4ebf-4112-b33d-eca6ac3f79b7ca238cd2";
-        private string newline = "9ed3a5d1-901b-49fa-b9c6-700bbd534fa798bb6729-b934-47fa-af34-3e8038c01c6571544560";
+        private readonly string firstline = "73hfa8ka-4jw3-5jsc-jldf-lfgjsadgmdlk3hlgfjsf-3562-sdg5-423d-3468jkjsäsköldsakölf";
+        private readonly string separator = "c3b19327-3a2e-4bac-b8a9-2b20b167c1e94083d8ce-4ebf-4112-b33d-eca6ac3f79b7ca238cd2";
+        private readonly string newline = "9ed3a5d1-901b-49fa-b9c6-700bbd534fa798bb6729-b934-47fa-af34-3e8038c01c6571544560";
         private bool passwordOk = false;
         private int formWidth2Buttons = 300;
         private int formWidth3Buttons = 360;
@@ -34,7 +34,6 @@ namespace Pass
         public FormMain()
         {
             InitializeComponent();
-            Application.AddMessageFilter(this);
             toolStrip1.Renderer = new MySR();
             passFile = Path.Combine(appDir, "pass.dat");
         }
@@ -321,6 +320,7 @@ namespace Pass
             menuShowPasswords.Checked = settings.LoadSetting("ShowPasswords", "bool", "false");
             menuUnlockStart.Checked = settings.LoadSetting("UnlockOnStart", "bool", "true");
             menuMinimizeOnLock.Checked = settings.LoadSetting("MinimizeOnLock", "bool", "false");
+            menuMinimizeOnCopy.Checked = settings.LoadSetting("MinimizeOnCopy", "bool", "true");
         }
 
         private void FormMain_Shown(object sender, EventArgs e)
@@ -329,7 +329,7 @@ namespace Pass
             timerFormShown.Start();
         }
 
-        private void timerFormShown_Tick(object sender, EventArgs e)
+        private void TimerFormShown_Tick(object sender, EventArgs e)
         {
             timerFormShown.Stop();
             FormShown();
@@ -361,12 +361,12 @@ namespace Pass
             }
         }
 
-        private void lstPass_DoubleClick(object sender, EventArgs e)
+        private void LstPass_DoubleClick(object sender, EventArgs e)
         {
             menuCopyClipboard.PerformClick();
         }
 
-        private void lstPass_KeyUp(object sender, KeyEventArgs e)
+        private void LstPass_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Insert) menuAdd.PerformClick();
             else if (e.KeyCode == Keys.Delete && menuDelete.Enabled) menuDelete.PerformClick();
@@ -377,21 +377,21 @@ namespace Pass
             else if (e.KeyCode == Keys.L && e.Modifiers == Keys.Control && menuLock.Enabled) menuLock.PerformClick();
         }
 
-        private void lstPass_SelectedIndexChanged(object sender, EventArgs e)
+        private void LstPass_SelectedIndexChanged(object sender, EventArgs e)
         {
             CheckEnabled();
         }
 
         // ************ MENU EVENTS ************** //
 
-        private void menuSaveList_Click(object sender, EventArgs e)
+        private void MenuSaveList_Click(object sender, EventArgs e)
         {
             SaveList();
             menuSaveList.Enabled = toolSave.Enabled = false;
             toolLabelSaved.Text = "";
         }
 
-        private void menuBackupList_Click(object sender, EventArgs e)
+        private void MenuBackupList_Click(object sender, EventArgs e)
         {
             bool cancel = false;
 
@@ -434,12 +434,12 @@ namespace Pass
             }
         }
 
-        private void menuExit_Click(object sender, EventArgs e)
+        private void MenuExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void menuAdd_Click(object sender, EventArgs e)
+        private void MenuAdd_Click(object sender, EventArgs e)
         {
             FormAdd form = new FormAdd();
             form.ShowPassword = menuShowPasswords.Checked;
@@ -462,7 +462,7 @@ namespace Pass
             CheckEnabled();
         }
 
-        private void menuModify_Click(object sender, EventArgs e)
+        private void MenuModify_Click(object sender, EventArgs e)
         {
             if (lstPass.SelectedItems.Count > 0)
             {
@@ -494,7 +494,7 @@ namespace Pass
             CheckEnabled();
         }
 
-        private void menuDelete_Click(object sender, EventArgs e)
+        private void MenuDelete_Click(object sender, EventArgs e)
         {
             if (lstPass.SelectedItems.Count > 0)
             {
@@ -534,7 +534,7 @@ namespace Pass
             CheckEnabled();
         }
 
-        private void menuCopyClipboard_Click(object sender, EventArgs e)
+        private void MenuCopyClipboard_Click(object sender, EventArgs e)
         {
             FormLogin login = new FormLogin();
             login.SiteName = lstPass.SelectedItems[0].Text;
@@ -543,10 +543,10 @@ namespace Pass
             login.Password = lstPass.SelectedItems[0].Tag.ToString();
             login.Show();
 
-            this.WindowState = FormWindowState.Minimized;
+            if (menuMinimizeOnCopy.Checked) this.WindowState = FormWindowState.Minimized;
         }
 
-        private void menuChangePassword_Click(object sender, EventArgs e)
+        private void MenuChangePassword_Click(object sender, EventArgs e)
         {
             FormChangePassword form = new FormChangePassword();
             if (menuChangePassword.Text == "Create master password...") form.CreateNew = true;
@@ -568,7 +568,7 @@ namespace Pass
             CheckEnabled();
         }
 
-        private void menuLock_Click(object sender, EventArgs e)
+        private void MenuLock_Click(object sender, EventArgs e)
         {
             bool cancel = false;
 
@@ -611,7 +611,7 @@ namespace Pass
             }
         }
 
-        private void menuShowPasswords_Click(object sender, EventArgs e)
+        private void MenuShowPasswords_Click(object sender, EventArgs e)
         {
             if (menuShowPasswords.Checked) menuShowPasswords.Checked = false;
             else menuShowPasswords.Checked = true;
@@ -620,7 +620,7 @@ namespace Pass
             settings.SaveSetting("ShowPasswords", menuShowPasswords.Checked.ToString());
         }
 
-        private void menuUnlockStart_Click(object sender, EventArgs e)
+        private void MenuUnlockStart_Click(object sender, EventArgs e)
         {
             if (menuUnlockStart.Checked) menuUnlockStart.Checked = false;
             else menuUnlockStart.Checked = true;
@@ -628,7 +628,7 @@ namespace Pass
             settings.SaveSetting("UnlockOnStart", menuUnlockStart.Checked.ToString());
         }
 
-        private void menuMinimizeOnLock_Click(object sender, EventArgs e)
+        private void MenuMinimizeOnLock_Click(object sender, EventArgs e)
         {
             if (menuMinimizeOnLock.Checked) menuMinimizeOnLock.Checked = false;
             else menuMinimizeOnLock.Checked = true;
@@ -636,34 +636,42 @@ namespace Pass
             settings.SaveSetting("MinimizeOnLock", menuMinimizeOnLock.Checked.ToString());
         }
 
+        private void MenuMinimizeOnCopy_Click(object sender, EventArgs e)
+        {
+            if (menuMinimizeOnCopy.Checked) menuMinimizeOnCopy.Checked = false;
+            else menuMinimizeOnCopy.Checked = true;
+
+            settings.SaveSetting("MinimizeOnCopy", menuMinimizeOnCopy.Checked.ToString());
+        }
+
         // ************ TOOLBAR EVENTS ************** //
 
-        private void toolAdd_Click(object sender, EventArgs e)
+        private void ToolAdd_Click(object sender, EventArgs e)
         {
             menuAdd.PerformClick();
         }
 
-        private void toolModify_Click(object sender, EventArgs e)
+        private void ToolModify_Click(object sender, EventArgs e)
         {
             menuModify.PerformClick();
         }
 
-        private void toolDelete_Click(object sender, EventArgs e)
+        private void ToolDelete_Click(object sender, EventArgs e)
         {
             menuDelete.PerformClick();
         }
 
-        private void toolCopyClipboard_Click(object sender, EventArgs e)
+        private void ToolCopyClipboard_Click(object sender, EventArgs e)
         {
             menuCopyClipboard.PerformClick();
         }
 
-        private void toolSave_Click(object sender, EventArgs e)
+        private void ToolSave_Click(object sender, EventArgs e)
         {
             menuSaveList.PerformClick();
         }
 
-        private void toolLock_Click(object sender, EventArgs e)
+        private void ToolLock_Click(object sender, EventArgs e)
         {
             menuLock.PerformClick();
         }
@@ -678,5 +686,6 @@ namespace Pass
                 //base.OnRenderToolStripBorder(e);
             }
         }
+
     }
 }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Pass
 {
-    public partial class FormAdd : Form, IMessageFilter
+    public partial class FormAdd : Form
     {
         private string modifyItem = "Modify item";
 
@@ -60,18 +60,17 @@ namespace Pass
         public FormAdd()
         {
             InitializeComponent();
-            Application.AddMessageFilter(this);
-            addLines();
-            checkPassword();
+            AddLines();
+            CheckPassword();
         }
 
-        private void addLines()
+        private void AddLines()
         {
-            line(panel1.Height, (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left));
-            line(this.ClientRectangle.Height - 51, (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left));
+            Line(panel1.Height, (AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left));
+            Line(this.ClientRectangle.Height - 51, (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left));
         }
 
-        private void line(int top, AnchorStyles a)
+        private void Line(int top, AnchorStyles a)
         {
             Label labelLine = new Label();
             labelLine.Top = top;
@@ -85,7 +84,7 @@ namespace Pass
             labelLine.BringToFront();
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
+        private void BtnOk_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -96,25 +95,34 @@ namespace Pass
             txtSiteName.Focus();
         }
 
-        private void txt_KeyUp(object sender, KeyEventArgs e)
+        private void Txt_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) btnOk.PerformClick();
         }
 
-        private void txtComments_TextChanged(object sender, EventArgs e)
+        private void TxtComments_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void checkShowPassword_CheckedChanged(object sender, EventArgs e)
+        private void CheckShowPassword_CheckedChanged(object sender, EventArgs e)
         {
-            checkPassword();
+            CheckPassword();
         }
 
-        private void checkPassword()
+        private void CheckPassword()
         {
             if (!checkShowPassword.Checked) txtPassword.PasswordChar = '●';
             else txtPassword.PasswordChar = '\0';
+        }
+
+        private void BtnGeneratePassword_Click(object sender, EventArgs e)
+        {
+            FormGeneratePassword form = new FormGeneratePassword();
+            form.OldPassword = txtPassword.Text;
+            form.ShowDialog();
+            if (form.Result == DialogResult.OK) txtPassword.Text = form.NewPassword;
+            form.Dispose();
         }
     }
 }

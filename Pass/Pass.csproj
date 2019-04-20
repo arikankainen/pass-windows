@@ -55,14 +55,17 @@
     <Compile Include="FormAdd.Designer.cs">
       <DependentUpon>FormAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAdd_MouseScroll.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FormChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormChangePassword.Designer.cs">
       <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGeneratePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGeneratePassword.Designer.cs">
+      <DependentUpon>FormGeneratePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -75,9 +78,6 @@
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormMain_MouseScroll.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMessage.cs">
       <SubType>Form</SubType>
@@ -104,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormChangePassword.resx">
       <DependentUpon>FormChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGeneratePassword.resx">
+      <DependentUpon>FormGeneratePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

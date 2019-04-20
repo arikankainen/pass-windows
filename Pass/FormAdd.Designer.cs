@@ -47,6 +47,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtComments = new System.Windows.Forms.TextBox();
             this.checkShowPassword = new System.Windows.Forms.CheckBox();
+            this.btnGeneratePassword = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@
             this.panel1.Controls.Add(this.labelName);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(470, 51);
+            this.panel1.Size = new System.Drawing.Size(611, 51);
             this.panel1.TabIndex = 20;
             // 
             // labelName
@@ -75,19 +76,19 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(288, 423);
+            this.btnOk.Location = new System.Drawing.Point(429, 617);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 18;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            this.btnOk.Click += new System.EventHandler(this.BtnOk_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(369, 423);
+            this.btnCancel.Location = new System.Drawing.Point(510, 617);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 19;
@@ -113,11 +114,12 @@
             // 
             this.txtSiteName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSiteName.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSiteName.Location = new System.Drawing.Point(24, 89);
             this.txtSiteName.Name = "txtSiteName";
-            this.txtSiteName.Size = new System.Drawing.Size(420, 20);
+            this.txtSiteName.Size = new System.Drawing.Size(561, 20);
             this.txtSiteName.TabIndex = 21;
-            this.txtSiteName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_KeyUp);
+            this.txtSiteName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyUp);
             // 
             // label1
             // 
@@ -141,11 +143,12 @@
             // 
             this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAddress.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.Location = new System.Drawing.Point(24, 138);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(420, 20);
+            this.txtAddress.Size = new System.Drawing.Size(561, 20);
             this.txtAddress.TabIndex = 23;
-            this.txtAddress.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_KeyUp);
+            this.txtAddress.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyUp);
             // 
             // label3
             // 
@@ -158,17 +161,19 @@
             // 
             // txtUsername
             // 
+            this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtUsername.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(24, 187);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(200, 20);
+            this.txtUsername.Size = new System.Drawing.Size(561, 20);
             this.txtUsername.TabIndex = 25;
-            this.txtUsername.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_KeyUp);
+            this.txtUsername.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyUp);
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(243, 171);
+            this.label4.Location = new System.Drawing.Point(21, 220);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 28;
@@ -176,17 +181,19 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPassword.Location = new System.Drawing.Point(246, 187);
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassword.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(24, 236);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(200, 20);
+            this.txtPassword.Size = new System.Drawing.Size(561, 20);
             this.txtPassword.TabIndex = 27;
-            this.txtPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_KeyUp);
+            this.txtPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt_KeyUp);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 220);
+            this.label5.Location = new System.Drawing.Point(21, 269);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 30;
@@ -197,32 +204,46 @@
             this.txtComments.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtComments.Location = new System.Drawing.Point(26, 236);
+            this.txtComments.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtComments.Location = new System.Drawing.Point(24, 285);
             this.txtComments.MaxLength = 10000;
             this.txtComments.Multiline = true;
             this.txtComments.Name = "txtComments";
             this.txtComments.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtComments.Size = new System.Drawing.Size(420, 147);
+            this.txtComments.Size = new System.Drawing.Size(561, 292);
             this.txtComments.TabIndex = 29;
-            this.txtComments.TextChanged += new System.EventHandler(this.txtComments_TextChanged);
+            this.txtComments.TextChanged += new System.EventHandler(this.TxtComments_TextChanged);
             // 
             // checkShowPassword
             // 
+            this.checkShowPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkShowPassword.AutoSize = true;
-            this.checkShowPassword.Location = new System.Drawing.Point(26, 427);
+            this.checkShowPassword.Location = new System.Drawing.Point(166, 621);
             this.checkShowPassword.Name = "checkShowPassword";
             this.checkShowPassword.Size = new System.Drawing.Size(101, 17);
             this.checkShowPassword.TabIndex = 31;
             this.checkShowPassword.Text = "Show password";
             this.checkShowPassword.UseVisualStyleBackColor = true;
-            this.checkShowPassword.CheckedChanged += new System.EventHandler(this.checkShowPassword_CheckedChanged);
+            this.checkShowPassword.CheckedChanged += new System.EventHandler(this.CheckShowPassword_CheckedChanged);
+            // 
+            // btnGeneratePassword
+            // 
+            this.btnGeneratePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnGeneratePassword.Location = new System.Drawing.Point(24, 617);
+            this.btnGeneratePassword.Name = "btnGeneratePassword";
+            this.btnGeneratePassword.Size = new System.Drawing.Size(120, 23);
+            this.btnGeneratePassword.TabIndex = 32;
+            this.btnGeneratePassword.Text = "Generate password";
+            this.btnGeneratePassword.UseVisualStyleBackColor = true;
+            this.btnGeneratePassword.Click += new System.EventHandler(this.BtnGeneratePassword_Click);
             // 
             // FormAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(470, 459);
+            this.ClientSize = new System.Drawing.Size(611, 653);
+            this.Controls.Add(this.btnGeneratePassword);
             this.Controls.Add(this.checkShowPassword);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtComments);
@@ -240,7 +261,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(486, 497);
+            this.MinimumSize = new System.Drawing.Size(486, 501);
             this.Name = "FormAdd";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -273,5 +294,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtComments;
         private System.Windows.Forms.CheckBox checkShowPassword;
+        private System.Windows.Forms.Button btnGeneratePassword;
     }
 }
