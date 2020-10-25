@@ -17,5 +17,3 @@ Luodut salasanat päätyvät salasanalistalle, jossa salasanoja voidaan lisätä
 Listan kohdetta tuplaklikkaamalla käyttäjänimi kopioidaan leikepöydälle ja pieni ikkuna ilmestyy hieman läpikuultavana näytön oikeaan alalaitaan. Kun käyttäjänimi on syötetty palveluun leikepöydältä, klikataan _Next_, jolloin salasana kopioituu leikepöydälle. Tämän jälkeen ikkunan voi sulkea, ja leikepöytä tyhjennetään. Ikkunassa on myös nappi palvelun avaamiseen selaimessa.
 
 <img src="/docs/pass_clipboard.png">
-
-En ota mitään vastuuta ohjelman toiminnasta tai salauksen toimivuudesta. Ohjelmasta ei ole jaossa kuin lähdekoodi.
