@@ -59,6 +59,7 @@
             this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.menuUnlockStart = new System.Windows.Forms.MenuItem();
             this.menuMinimizeOnLock = new System.Windows.Forms.MenuItem();
+            this.menuMinimizeOnCopy = new System.Windows.Forms.MenuItem();
             this.statusBar1 = new System.Windows.Forms.StatusBar();
             this.statusCount = new System.Windows.Forms.StatusBarPanel();
             this.statusDummy = new System.Windows.Forms.StatusBarPanel();
@@ -72,7 +73,6 @@
             this.clmPassword = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.clmComments = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.timerFormShown = new System.Windows.Forms.Timer(this.components);
-            this.menuMinimizeOnCopy = new System.Windows.Forms.MenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusDummy)).BeginInit();
@@ -331,6 +331,12 @@
             this.menuMinimizeOnLock.Text = "Minimize on lock";
             this.menuMinimizeOnLock.Click += new System.EventHandler(this.MenuMinimizeOnLock_Click);
             // 
+            // menuMinimizeOnCopy
+            // 
+            this.menuMinimizeOnCopy.Index = 4;
+            this.menuMinimizeOnCopy.Text = "Minimize on copy";
+            this.menuMinimizeOnCopy.Click += new System.EventHandler(this.MenuMinimizeOnCopy_Click);
+            // 
             // statusBar1
             // 
             this.statusBar1.Location = new System.Drawing.Point(0, 239);
@@ -397,6 +403,7 @@
             this.clmPassword,
             this.clmComments});
             this.lstPass.FullRowSelect = true;
+            this.lstPass.HideSelection = false;
             this.lstPass.Location = new System.Drawing.Point(12, 33);
             this.lstPass.MultiSelect = false;
             this.lstPass.Name = "lstPass";
@@ -438,12 +445,6 @@
             // 
             this.timerFormShown.Interval = 200;
             this.timerFormShown.Tick += new System.EventHandler(this.TimerFormShown_Tick);
-            // 
-            // menuMinimizeOnCopy
-            // 
-            this.menuMinimizeOnCopy.Index = 4;
-            this.menuMinimizeOnCopy.Text = "Minimize on copy";
-            this.menuMinimizeOnCopy.Click += new System.EventHandler(this.MenuMinimizeOnCopy_Click);
             // 
             // FormMain
             // 

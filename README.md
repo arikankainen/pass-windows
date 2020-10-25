@@ -2,18 +2,30 @@
 
 Pass on Windowsilla toimiva salasanojenhallintasovellus, jolle on myös oma [Android-versio](https://github.com/arikankainen/pass-android).
 
-Ohjelmalla voidaan luoda _master password_, jonka syöttämällä saadaan avattua lista omia salasanoja. Lista on salattu käyttäen _master password_:ia.
+Ohjelmalla voidaan luoda `master password`, jonka syöttämällä saadaan avattua lista omista palveluista ja niiden salasanoista. Lista on salattu käyttäen `master password`:ia.
 
-<img src="/docs/pass_master_password.png">
+![Master salasana](/docs/master.png)
+
+## Uuden palvelun lisäys
 
 Listalle voi lisätä salasanan lisäksi muitakin tietoja palvelusta johon salasana kuuluu. Salasanoja voidaan generoida automaattisesti, ja salasanan sisältämät merkit sekä pituus voidaan määritellä tarkasti.
 
-<img src="/docs/pass_create_new.png">
+![Uusi salasana](/docs/new.png)
 
-Luodut salasanat päätyvät salasanalistalle, jossa salasanoja voidaan lisätä, muokata ja poistaa. Lista voidaan myös lukita ohjelmaa sammuttamatta, jolloin se tyhjennetään kunnes _master password_ syötetään uudelleen.
+## Lista palveluista
 
-<img src="/docs/pass_main.png">
+Palvelut päätyvät listalle, jossa palveluja voidaan lisätä, muokata ja poistaa. Lista voidaan myös lukita ohjelmaa sammuttamatta, jolloin se tyhjennetään kunnes `master password` syötetään uudelleen.
 
-Listan kohdetta tuplaklikkaamalla käyttäjänimi kopioidaan leikepöydälle ja pieni ikkuna ilmestyy hieman läpikuultavana näytön oikeaan alalaitaan. Kun käyttäjänimi on syötetty palveluun leikepöydältä, klikataan _Next_, jolloin salasana kopioituu leikepöydälle. Tämän jälkeen ikkunan voi sulkea, ja leikepöytä tyhjennetään. Ikkunassa on myös nappi palvelun avaamiseen selaimessa.
+![Pääikkuna](/docs/main.png)
 
-<img src="/docs/pass_clipboard.png">
+## Tunnusten kopiointi leikepöydälle
+
+Listan kohdetta tuplaklikkaamalla käyttäjänimi kopioidaan leikepöydälle ja pieni ikkuna ilmestyy hieman läpikuultavana näytön oikeaan alalaitaan. Kun käyttäjänimi on syötetty palveluun leikepöydältä, klikataan `Next`, jolloin salasana kopioituu leikepöydälle. Tämän jälkeen ikkunan voi sulkea, ja leikepöytä tyhjennetään. Ikkunassa on myös nappi palvelun avaamiseen selaimessa.
+
+![Leikepöytä](/docs/clipboard.png)
+
+## Lataus
+
+En ota mitään vastuuta ohjelman mahdollisesti aiheuttamista vahingoista; kukin käyttää ohjelmaa omalla vastuullaan. Toiminta testattu Windows 10 -käyttöjärjestelmällä.
+
+**[Lataa uusin versio](https://github.com/arikankainen/pass-windows/releases)**
